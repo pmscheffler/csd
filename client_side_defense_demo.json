@@ -1,0 +1,29 @@
+{
+    "class": "AS3",
+    "action": "deploy",
+    "persist": true,
+    "declaration": {
+        "class": "ADC",
+        "schemaVersion": "3.0.0",
+        "id": "urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d",
+        "label": "Sample 1",
+        "remark": "Simple HTTP Service with Round-Robin Load Balancing",
+        "Sample_01": {
+            "class": "Tenant",
+            "A1": {
+                "class": "Application",
+                "client_side_defense_js-test": {
+                    "class": "Data_Group",
+                    "remark": "iRule searches for default and uses the value for JS injection0",
+                    "keyDataType": "string",
+                    "records": [
+                        {
+                            "key": "default",
+                            "value": "<script   src=\"https://us.gimp.zeronaught.com/__imp_apg__/js/volt-f5_amer_ent_qyyfhhfj-07a71178.js\" id=\"_imp_apg_dip_\" _imp_apg_cid_=\"volt-f5_amer_ent_qyyfhhfj-07a71178\" _imp_apg_api_domain_=\"https://us.gimp.zeronaught.com\"></script>"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
