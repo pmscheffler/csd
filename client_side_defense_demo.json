@@ -14,7 +14,7 @@
                 "class": "Application",
                 "client_side_defense_js": {
                     "class": "Data_Group",
-                    "remark": "iRule searches for default and uses the value for JS injection0",
+                    "remark": "iRule searches for default and uses the value for JS injection",
                     "keyDataType": "string",
                     "records": [
                         {
