@@ -11,5 +11,5 @@ Then you run your command:
 curl --location --request POST 'https://{{Management IP}}/mgmt/shared/appsvcs/declare' \
 --header 'X-F5-Auth-Token: YOUWOULDLIKETOKNOW' \
 --header 'Content-Type: application/json' \
---data-raw '<<contents of the JSON file>>'
+--data-raw 'contents of the JSON file'
 
