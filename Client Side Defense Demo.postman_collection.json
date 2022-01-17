@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a5ce4b5f-b5e2-4e0c-bfd7-6b758df6c462",
+		"_postman_id": "3abc246c-7fa7-4ca5-b456-e442aad29e81",
 		"name": "Client Side Defense Demo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"",
-							"postman.setEnvironmentVariable(\"auth_token\", jsonData.token.token);",
+							"postman.collectionVariables.set(\"auth_token\", jsonData.token.token);",
 							""
 						],
 						"type": "text/javascript"
@@ -211,22 +211,42 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "tenant",
-			"value": "f5-amer-ent"
+			"value": "YourTenantHost"
 		},
 		{
 			"key": "volterra-auth-token",
 			"value": "PLEASESET"
 		},
 		{
-			"key": "local_auth_token",
-			"value": ""
+			"key": "auth_token",
+			"value": "PLEASESET"
 		},
 		{
 			"key": "bigip_a_mgmt",
-			"value": "d3b65017-415f-4bef-81fc-d5c17462887e.access.udf.f5.com"
+			"value": "xxx.access.udf.f5.com"
 		},
 		{
 			"key": "user",
