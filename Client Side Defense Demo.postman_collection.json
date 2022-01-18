@@ -108,7 +108,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://{{tenant}}.console.ves.volterra.io/api/client_side_defense/namespaces/system/protected_domains",
+					"raw": "https://{{tenant}}.console.ves.volterra.io/api/shape/csd/namespaces/system/protected_domains?report_fields=\"\"",
 					"protocol": "https",
 					"host": [
 						"{{tenant}}",
@@ -119,10 +119,17 @@
 					],
 					"path": [
 						"api",
-						"client_side_defense",
+						"shape",
+						"csd",
 						"namespaces",
 						"system",
 						"protected_domains"
+					],
+					"query": [
+						{
+							"key": "report_fields",
+							"value": "\"\""
+						}
 					]
 				}
 			},
@@ -148,7 +155,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://{{tenant}}.console.ves.volterra.io/api/client_side_defense/namespaces/system/js_configuration?name=scriptTag",
+					"raw": "https://{{tenant}}.console.ves.volterra.io/api/shape/csd/namespaces/system/js_configuration",
 					"protocol": "https",
 					"host": [
 						"{{tenant}}",
@@ -159,16 +166,11 @@
 					],
 					"path": [
 						"api",
-						"client_side_defense",
+						"shape",
+						"csd",
 						"namespaces",
 						"system",
 						"js_configuration"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "scriptTag"
-						}
 					]
 				}
 			},
@@ -234,7 +236,7 @@
 	"variable": [
 		{
 			"key": "tenant",
-			"value": "YourTenantHost"
+			"value": "f5-amer-ent"
 		},
 		{
 			"key": "volterra-auth-token",
@@ -242,11 +244,11 @@
 		},
 		{
 			"key": "auth_token",
-			"value": "PLEASESET"
+			"value": ""
 		},
 		{
 			"key": "bigip_a_mgmt",
-			"value": "xxx.access.udf.f5.com"
+			"value": "d3b65017-415f-4bef-81fc-d5c17462887e.access.udf.f5.com"
 		},
 		{
 			"key": "user",
