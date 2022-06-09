@@ -29,6 +29,13 @@
                     "iRule": {
                         "url": "https://raw.githubusercontent.com/pmscheffler/csd/main/addClientSideDefense.tcl"
                     }
+                },
+                "iRule_addMaliciousJSCalls": {
+                    "class": "iRule",
+                    "remark": "Client Side Defense Demo iRule, add this to any VIP you need the Tag added to",
+                    "iRule": {
+                        "url": "https://raw.githubusercontent.com/pmscheffler/csd/main/addClientSideDefense.tcl"
+                    }
                 }
             }
         }

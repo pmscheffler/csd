@@ -9,34 +9,32 @@ when HTTP_REQUEST {
   # Check if response type is text
   HTTP::header remove "Accept-Encoding"
   log local0. "Removed Accept-Encoding"
+
+  set httppath [HTTP::path]
+  set httphost [HTTP::host]
+
 }
 
 when HTTP_RESPONSE {
   # Check if response type is text
   if {[HTTP::header value Content-Type] starts_with "text"} {
-    # get the JS from the Datagroup
-    set csdjs [class match -value "default" equals client_side_defense_js] 
-    log local0. "JS to inject: $csdjs"
-    
-    set maliciousjs {<script>(function(){
-            var s = document.createElement('script');
-         var domains =
-          "ganalitis.com",
-          "ganalitics.com",
-          "gstatcs.com",
-          "webfaset.com",
-          "fountm.online",     
-          "pixupjqes.tech",
-          "jqwereid.online"];
-            for (var i = 0; i < domains.length; ++i){
-          s.src = 'https://' + domains[i];
-          }
-         })();</script>}
-    
-    # Replace http:// with https://
-    log local0. "Searching for <head>"
-    STREAM::expression "@<head>@<head>$csdjs$maliciousjs@"
 
+    set protectedDomain $httphost
+
+    if { $protectedDomain contains "access.udf.f5.com" } {
+      set protectedDomain "access.udf.f5.com"
+    }
+
+    log local0.info "For $httppath protectedDomain: $protectedDomain"
+
+    # get the JS from the Datagroup
+    set csdjs [class match -value $protectedDomain equals client_side_defense_js]
+    if {$csdjs equals "<REPLACEME>"} {
+      log local0.err "Please update your Data Group with the correct JS"
+    } else {
+      log local0. "Searching for <head>"
+      STREAM::expression "@<head>@<head>$csdjs@"
+    }
     # Enable the stream filter for this response only
     STREAM::enable
   }
@@ -44,5 +42,5 @@ when HTTP_RESPONSE {
 
 
 when STREAM_MATCHED {
-    log local0. "We got a hit!"
+  log local0.info "We got a hit!"
 }
